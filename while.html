@@ -1,0 +1,32 @@
+LAB-8
+2026BCY0057
+<!DOCTYPE html>
+<html>
+<body>
+<p id="rd"></p>
+<script>
+let battery = 100;
+let ch ="";
+
+while (battery > 0){
+battery = battery - 15;
+
+if (battery < 0){
+battery = 0;
+}
+ ch += "Battery Level: " + battery + "%<br>";
+
+    if (battery < 20 && battery > 0) {
+        ch +=  "Warning! Low Battery<br>";
+    }
+
+    if (battery == 0) {
+        ch += "Battery Empty! Phone Stopped.<br>";
+        break;
+    }
+}
+document.getElementById("rd").innerHTML=ch;
+
+</script>
+</body>
+</html>
