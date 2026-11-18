@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Expense Tracker</title></head>
+    <style>
+        body{background-color:lightblue; text-align:center}
+        table{margin:auto; background-color:white; border-collapse: collapse;}
+        th, td{border: 1px solid black; padding: 10px;} 
+    </style>
+    <body>
+        <h2>Expense Tracker</h2>
+        expense: <input type="number" id="exp"><br><br>
+        amount: <input type="number" id="amt"><br><br>
+        category: <select id="category">
+            <option value="Fd">food</option>
+            <option value="Trt">transport</option>
+            <option value="edu">education</option>
+            <option value="sh">shopping</option>       
+        </select><br><br>
+        <button onclick="add()">add expense</button>
+        <h3>total: $<span id="tl">0</span></h3>
+        <table>
+            <tr>
+                <th>description</th>
+                <th>amount</th>
+                <th>category</th>
+                <th>delete</th>
+            </tr>   
+            <tbody id="data"></tbody>
+            let tl=0;
+            let amt=0;
+            function add(){
+                let name=document.getElementById("name").value;
+                let amt= Number(document.getElementById("amt").value);
+                let cat=document.getElementById("category").value;
+                if(name == "" || amt == 0){
+                    alert("you didn't enter anything");
+                    return;
+                }
+                tl+=amt;
+                let row= "<tr>" +
+                     let row = "<tr>" +
+        "<td>" + name + "</td>" +
+        "<td>" + amt + "</td>" +
+        "<td>" + cat + "</td>" +
+        "<td><button onclick='del(this," + amt + ")'>Delete</button></td>" +
+        "</tr>";
+                
+                document.getElementById("data").innerHTML += row;
+                document.getElementById("tl").innerText = tl;
+                document.getElementById("name").value = "";
+                document.getElementById("amt").value = "";
+            }
+            function del(button, amt){
+                let row = button.parentNode.parentNode;
+                row.parentNode.removeChild(row);
+                tl -= amt;
+                document.getElementById("tl").innerText = tl;
+            }   
+
+        </table>
+    </body>
+</html>
